@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"              content="width=device-width, initial-scale=1.0">
+    <meta name="keywords"              content="timer alarm stopwatch">
+    <meta name="description"           content="set your timer when you are studying">
+    <meta name="author"                content="Mohammad Amin Shikhani">
+
+    <title>Timer</title>
+
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+    <nav>
+        <div class="bar_icon">
+            <i class="fas fa-bars fa-2x"></i>
+            <i class="fas fa-times fa-2x"></i>
+        </div>
+        <h1 class="title">Timer</h1>
+        <div class="menu">
+            <ul>
+                <li><a href="#" data-click="timer">Timer</a></li>
+                <li><a href="#" data-click="alarm">Alarm</a></li>
+                <li><a href="#" data-click="stop_watch">Stop Watch</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="overlay"></div>
+
+    <!------------------------start the timer section------------------------------->
+    <section class="timer">
+        <h1>
+            <span class="timer_hours">00</span>:<span class="timer_minutes">00</span>:<span class="timer_seconds">00</span>
+        </h1>
+        <div class="btns">
+            <button class="set_timer">Set</button>
+            <button class="pause_timer">Pause</button>
+            <button class="stop_timer">Stop</button>
+            <button class="resume_timer">Resume</button>
+        </div>
+        
+        <div class="setter">
+            <i class="fas fa-times fa-2x close_setter"></i>
+            <div class="container">
+
+                <select name="choosen_timer_hours"   id="choosen_timer_hours"></select>
+                    
+                <select name="choosen_timer_minutes" id="choosen_timer_minutes"></select>
+
+                <select name="choosen_timer_seconds" id="choosen_timer_seconds"></select>
+
+                <br>
+                <button class="timer_reset">Reset</button>
+                <button class="timer_start">Start</button>
+            </div>
+        </div>
+    </section>
+
+    <!------------------------start the alarm section------------------------------->
+    <section class="alarm">
+        <h1></h1>
+        <h3></h3>
+        <h2></h2>
+        <div class="container">
+            <select name="choosen_alarm_hours"   id="choosen_alarm_hours"></select>
+            <select name="choosen_alarm_minutes" id="choosen_alarm_minutes"></select><br>
+            <button class="start_alarm">Start</button>
+            <button class="stop_alarm">Stop</button>
+        </div>
+    </section>
+
+    <!------------------------start the stopwatch section------------------------------->
+    <section class="stop_watch">
+        <h1>00:00:00</h1>
+        <div class="container">
+            <button class="start_stop_watch">Start</button>
+            <button class="round">Round</button>
+            <button class="pause_stop_watch">Pause</button>
+            <button class="resume_stop_watch">Resume</button>
+            <button class="stop_stop_watch">Stop</button>
+        </div>
+        <hr>
+        <ul></ul>
+    </section>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

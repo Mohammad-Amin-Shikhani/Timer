@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+//colors variables and mixin
+$primary_color : #0099ff;
+$secondary_color : orangered;
+@mixin button {
+    font-size: 1.5em;
+    padding: .5em 1em;
+    border: 0;
+    border-radius: 1em;
+    margin: 0 .3em;
+}
+@mixin primary_btn {
+    background-color: $primary_color;
+    box-shadow: 0 0 20px inset #007acb;
+    color: white;
+}
+@mixin light_btn {
+    background-color: rgb(228, 228, 228);
+    box-shadow: 0 0 20px inset rgb(194, 194, 194);
+}
+@mixin secondary_btn {
+    background-color: rgb(255, 8, 0);
+    color: white;
+    box-shadow: 0 0 20px inset rgb(187, 6, 0);
+}
+//reset the page
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e9e9e9;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+}
+//start the main style for page
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    color: $primary_color;
+    background-color: white;
+    border-bottom: 1px solid $primary_color ;
+    padding: 0 1em;
+    .bar_icon {
+        i {
+            &:nth-child(2) {
+                display: none;
+            }
+        }
+    }
+    h1 {
+        flex: 1;
+        text-align: center;
+        letter-spacing: 3px;
+    }
+    .menu {
+        position: fixed;
+        top: 10vh;
+        left: 0;
+        height: 90vh;
+        width: 0;
+        overflow: hidden;
+        box-shadow: inset 0 0 2px $primary_color;
+        border-radius: 0 10px 10px 0;
+        background-image: linear-gradient(to right top, #f1f9ff, white);
+        text-align: center;
+        transition: .5s;
+        z-index: 3;
+        li {
+            padding-top: 3em;
+            font-size: 1.2em;
+            a {
+                color: black;
+                font-weight: 600;
+            }
+        }
+    }
+}
+.overlay {
+    position: fixed;
+    top: 10vh;
+    height: 90vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+section {
+    min-height: 90vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: -1;
+    display: none;
+    &:nth-of-type(1) {
+        display: flex;
+    }
+}
+
+/* start the timer section*/
+.timer {
+    h1 {
+        font-size: 3.5em;
+        margin-bottom: .5em;
+        font-family: 'Orbitron', sans-serif ;
+    }
+    .btns {
+        button {
+            @include button();
+        }
+        .set_timer {
+            @include primary_btn();
+        }
+        .pause_timer {
+            @include light_btn();
+            display: none;
+        }
+        .stop_timer {
+            @include secondary_btn();
+            display: none;
+        }
+        .resume_timer {
+            background-color: #04b748;
+            color: white;
+            box-shadow: 0 0 20px inset #026829;
+            display: none;
+        }
+    }
+    .setter {
+        width: 100%;
+        height: 90vh;
+        position: fixed;
+        background-color: white;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        i {
+            position: absolute;
+            top: .5em;
+            left: .5em;
+            color: $secondary_color;
+        }
+        .container {
+            text-align: center;
+            select {
+                font-family: 'Orbitron', sans-serif ;
+                font-size: 1.2em;
+                letter-spacing: 3px;
+                color: rgb(63, 63, 63);
+                padding: .3em;
+                margin: 0 .3em 1em;
+                border: 1px solid $primary_color;
+                border-radius: 10px;
+            }
+            button {
+                @include button();
+                &:nth-of-type(1) {
+                    @include light_btn();
+                }
+                &:nth-of-type(2){
+                    @include primary_btn();
+                }
+            }
+        }
+    }
+}
+//start the alarm section
+.alarm {
+    text-align: center;
+    h1 {
+        font-size: 2.5em;
+        color: rgb(71, 71, 71);
+    }
+    h2 {
+        font-size: 4em;
+        color: $primary_color;
+        margin: 1em;
+        display: none;
+    }
+    h3 {
+        font-size: 1.2em;
+        color: rgb(170, 71, 36);
+        margin: 1em;
+    }
+    select {
+        font-family: 'Orbitron', sans-serif ;
+        font-size: 1.2em;
+        letter-spacing: 3px;
+        color: rgb(63, 63, 63);
+        padding: .3em;
+        margin: 0 .3em 1em;
+        border: 1px solid $primary_color;
+        border-radius: 10px;
+    }
+    button {
+        @include button();
+        &:nth-of-type(1) {
+            @include primary_btn();
+        }
+        &:nth-of-type(2) {
+            @include secondary_btn();
+            display: none;
+        }
+    }
+}
+//start the srop watch section
+.stop_watch {
+    min-height: unset;
+    padding-top: 10em;
+    h1 {
+        font-size: 3.5em;
+        margin-bottom: .5em;
+    }
+    .container {
+        button {
+            @include button();
+            display: none;
+            &:nth-child(1) {
+                background-color: $primary_color;
+                display: unset;
+            }
+            &:nth-child(2) {
+                background-color: rgb(152, 248, 248);
+            }
+            &:nth-child(3) {
+                @include light_btn();
+            }
+            &:nth-child(4) {
+                @include primary_btn();
+            }
+            &:nth-child(5) {
+                @include secondary_btn();
+            }
+        }
+    }
+    hr {
+        width: 250px;
+        border: 0;
+        margin: 1em;
+        border-bottom: 1px solid #007acb;
+    }
+    ul {
+        li {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+    }
+}
